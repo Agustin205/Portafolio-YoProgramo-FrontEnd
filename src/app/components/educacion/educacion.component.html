@@ -1,0 +1,30 @@
+<div class="row">
+    <h1>Educacion</h1>
+
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-outline-dark" routerLink="/nuevaeduc" *ngIf="isLogged">
+            Nueva educacion
+        </button>
+    </div>
+
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Educacion of educ">
+                    <td>
+                        <h2>{{Educacion.nombreEd}}</h2>
+                    </td>
+                    <td><h3>{{Educacion.descripcionEd}}</h3></td>
+                    <td *ngIf="isLogged"><button class="btn btn-dark" routerLink="/editeduc/{{Educacion.id}}"><i
+                                class="bi bi-pencil-square"></i>EDITAR</button>
+                    </td>
+
+                    <td *ngIf="isLogged"><button class="btn btn-danger" (click)="delete(Educacion.id)"><i
+                                class="bi bi-pencil-square"></i>BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
